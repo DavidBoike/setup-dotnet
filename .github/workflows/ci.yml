@@ -13,6 +13,8 @@ jobs:
     name: Test
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v2
       - name: Before
         run: |
           dotnet --version
@@ -20,7 +22,7 @@ jobs:
       - name: Test Action
         uses: ./
         with:
-          versions: 5.0.x, 3.1.x
+          versions: 5.0, 3.1
       - name: After
         run: |
           dotnet --version
