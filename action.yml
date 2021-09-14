@@ -1,0 +1,12 @@
+name: "Setup dotnet"
+description: "Setup dotnet for multiple different target framework versions"
+inputs:
+  versions:
+    description: "List of versions to be passed to actions/setup-dotnet"
+    required: true
+runs:
+  using: "composite"
+  steps:
+    - run: |
+      echo "Composite Action Test"
+      echo ${{ inputs.versions }}
