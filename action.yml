@@ -13,4 +13,6 @@ runs:
         ref: v1.8.2
         path: ${{ github.action_path }}/official-action
     - shell: bash
-      run: node ${{ github.action_path }}/run-installs.js
+      env:
+        OFFICIAL_ACTION_PATH: ${{ github.action_path }}/official-action
+      run: node ${{ github.action_path }}run-installs.js

@@ -1,4 +1,5 @@
-const core = require('@actions/core');
-const github = require('@actions/github');
+const officialPath = process.env.OFFICIAL_ACTION_PATH;
 
-console.log(JSON.stringify(github, null, 2));
+const setupDotnet = require(officialPath + '/dist');
+
+console.log(JSON.stringify(setupDotnet, null, 2));
