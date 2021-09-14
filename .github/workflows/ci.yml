@@ -20,7 +20,7 @@ jobs:
       - name: Test Action
         uses: ./
         with:
-          versions: [ '5.0.x', '3.1.x' ]
+          versions: 5.0.x, 3.1.x
       - name: After
         run: |
           dotnet --version
