@@ -7,11 +7,10 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - shell: pwsh
-      run: |
-        echo "Composite Action Test"
-        echo ${{ inputs.versions }}
-    - uses: actions/setup-dotnet@v1.8.2
-      if: inputs.versions.contains('5.0')
+    - uses: actions/checkout@v2.3.4
       with:
-        dotnet-version: 5.0.x
+        repository: actions/setup-dotnet
+        ref: v1.8.2
+        path: ${{ github.action_path }}/official-action
+    - shell: bash
+      run: node ${{ github.action_path }}/run-installs.js
