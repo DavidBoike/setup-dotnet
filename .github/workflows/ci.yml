@@ -1,0 +1,27 @@
+name: CI
+on:
+  pull_request:
+    paths-ignore:
+      - '**.md'
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - '**.md'
+jobs:
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Before
+        run: |
+          dotnet --version
+          dotnet --list-sdks
+      - name: Test Action
+        uses: ./
+        with:
+          versions: [ '5.0.x', '3.1.x' ]
+      - name: After
+        run: |
+          dotnet --version
+          dotnet --list-sdks
